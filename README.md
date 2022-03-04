@@ -10,7 +10,7 @@
 * Track their progress when they sign up
 * Contribute resources that they found useful 
 
-## How run
+## How to run
 - Clone the repo `git clone https://github.com/StephenMakenziWaweru/drivingTestPrep.git`
 - cd into it `cd drivingTestPrep`
 - create a virtual environment and activate `pipenv shell`
