@@ -1,0 +1,9 @@
+/* Owner and date css */
+.owner-date {
+    font-size: 9px;
+} 
+
+/* inline paragraph */
+.inline-button {
+    display: inline-block;
+}

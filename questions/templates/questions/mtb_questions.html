@@ -1,0 +1,43 @@
+{% extends "highwaysign/base_sidenav.html" %}
+{% load static %}
+{% block title1 %} <title>Questions | DrivingTestPrep</title> {% endblock title1 %}
+{% block content1 %}
+<h2 class="text-center">MTB Questions</h2>
+
+<div class="text-end m-3 ">
+    <button class="btn btn-secondary btn-sm" id="toggleAnswer"><i class="fa fa-eye-slash" aria-hidden="true"></i> hide all answers</button>
+</div>
+
+<!-- Short explanation -->
+<div class="border m-3 ms-0 p-3">
+    <ol>
+        {% for quiz in quiz_list %}
+        <div class="border rounded p-4 pt-1 pb-1 mb-2">
+            <p class=" owner-date m-0 p-0 text-end"><b>added by:</b> {{quiz.qs_owner}}   <b>date:</b> {{ quiz.qs_date_added|date:"M d, Y" }}</p>
+            <li>
+                <p><strong>{{ quiz.qs_title }}</strong></p>
+                <small>{{ quiz.qs_answer|linebreaks }}</small>
+                
+            </li>
+            <div>
+
+            </div>
+            <span class="text-primary">2 <a type="submit"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></span>
+            <span class="text-primary">0 <a type="submit"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></span>
+            
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden">
+                
+            </form>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden">
+                
+            </form>
+            
+        </div>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock content1 %}

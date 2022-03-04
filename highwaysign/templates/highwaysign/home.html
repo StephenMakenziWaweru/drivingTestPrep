@@ -1,0 +1,87 @@
+{% extends "highwaysign/base.html" %}
+{% load static %}
+{% block title %} <title>Home | DrivingTestPrep</title> {% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <!-- Top image -->
+        <div class="mt-3 mb-4 text-danger text-center p-3 bg-image">
+            <h2>Driving Theory Masters!</h2>
+        </div>
+
+        <!-- About -->
+        <div class="mb-4 border p-3">
+            <h3 class="text-center">DRIVING TEST PREP</h3>
+            <div class="row">
+                <div class="col-8">
+                    <p class="lead">
+                        <span class="text-muted">Tagline:</span> The ultimate Driving Test Preparation site
+                    </p> 
+                    <p>This is a collection of the most <b>comprehensive</b> driving test revision
+                    materials.</p>
+                    <p>We are all about making you the best driver on the road <i>one quiz at a time!</i></p>
+                </div>
+                <div class="col-4">
+                    {% if user.is_authenticated %}
+                    <p>Checkout your progress in the profile section!</p>
+                    <a href="{% url 'profile' %}">
+                        <button class="btn btn-success">View Progress</button>
+                    </a>
+                    {% else %}
+                    <p>Sign up to save your progress, contibute questions and other resources!</p>
+                    <a href="{% url 'register' %}">
+                        <button class="btn btn-success">Sign Up</button>
+                    </a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Questions -->
+        <div class="mb-4 border p-3">
+            <h3 class="">Commonly Asked Questions</h3>
+            <p class="lead">Browse some of the most commonly asked questions with answers!!</p>
+            <a href="{% url 'general-q' %}">
+                <button class="btn btn-success">Checkout our QnA</button>
+            </a>
+        </div>
+        
+        <!-- HIghway Signs -->
+        <div class="mb-4 border p-3">
+            <h3 class="">Highway | Road | Traffic Signs</h3>
+            <div class="row">
+                <div class="col-8">
+                    <p class="lead">Recognize common highway signs like a pro!</p>
+                    <p>This is a comprehensive list of all the highway signs you'll ever need to know.</p>
+                </div>
+                <div class="col-4 ">
+                    <ul class="list-unstyled">
+                        <li class="m-1"> <a  class="btn btn-sm btn-success" href="">Class A | Mandatory Signs</a> </li>
+                        <li class="m-1"> <a class="btn btn-sm btn-success" href="">Class B | Warning Signs</a> </li>
+                        <li class="m-1"> <a class="btn btn-sm btn-success" href="">Class C | Informatory Signs</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- MTB -->
+        <div class="mb-4 border p-3">
+            <h3 class="">The Model Town Board</h3>
+            <div class="row">
+                <div class="col-6">
+                    <p class="lead">Want to drive on East African Roads like a pro?</p>
+                    <p>Know the Model Town Board like the back of your hand</p>
+                    <button class="btn btn-success">Model Town Board</button>
+                </div>
+                <div class="col-6">
+                    <div class="col card m-2 p-2">
+                        <img src="{% static 'highwaysign/images/mtb.jpg' %}" class="card-img-top" alt="model town board">
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+{% endblock content %}

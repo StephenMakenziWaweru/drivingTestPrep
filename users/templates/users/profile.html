@@ -1,0 +1,122 @@
+{% extends "highwaysign/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %} 
+    <div class="container mb-4">
+        <h3 class="text-center m-3 lead">Welcome {{ user.username }} ...</h3>
+        <!-- ROW 1 -->
+        <div class="row mt-3 justify-content-around">
+            <!-- User Profile Details -->
+            <div class="border rounded col-md-5 pb-3">
+                <div class="display-1 text-center"><i class="bi bi-person-circle"></i></div>
+                <div class="border-top mb-1"></div>
+                <p> <b>Username: </b> {{ user.username }}</p>
+                <p><b>Email: </b>{{ user.email }}</p>
+                <p><b>Member since: </b>{{ user.date_joined|date:"M d, Y" }}</p>
+                
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bi bi-pencil-square"></i> Edit Details
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <form method="POST">{% csrf_token %}
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit Profile Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                {{ u_form | crispy }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Stats Details -->
+            <div class="border rounded col-md-5 p-3">
+                <h3 class="text-center">Usage Stats</h3>
+                <div class="border-top mb-1"></div>
+                <div>You are a learning machine!!</div>
+                <ul class="list-unstyled pt-3">
+                    <li >Questions
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        </div>
+                    </li>
+                    <li class="pt-3">Signs
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        </div>
+                    </li>
+                    <li class="pt-3">MTB
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ROW 2 -->
+        <div class="row mt-3 justify-content-around">
+        
+            <!-- Contributions Column -->
+            <div class="border rounded col-md-5 p-3">
+                <h3 class="text-center">Contributions Made</h3>
+                <div class="border-top mb-1"></div>
+                <figure class="bg-white p-3 rounded" style="border-left: .25rem solid #a34e78;">
+                    <blockquote class="blockquote pb-2">
+                      <p class="lead">
+                       No one really makes it on their own, we're all assisted to get where we are.
+                      </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0 font-italic">
+                      Fred Swaniker, Founder & Chief Curator of The ROOM
+                    </figcaption>
+                </figure>
+                <div class="row">
+                    <div class="bg-dark text-white w-25 text-center p-1 rounded m-3"> 
+                        <h1><i class="bi bi-question-diamond-fill"></i></h1>
+                        <div>39</div>
+                        <div><small>Questions</small></div>
+                    </div>
+                    <div class="bg-dark text-white w-25 text-center p-1 rounded m-3"> 
+                        <h1><i class="bi bi-dash-circle-fill"></i></h1>
+                        <div>12</div>
+                        <div><small>Signs</small></div>
+                    </div>
+                    <div class="bg-dark text-white w-25 text-center p-1 rounded m-3"> 
+                        <h1><i class="bi bi-arrow-repeat"></i></h1>
+                        <div>03</div>
+                        <div><small>MTB</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions Column -->
+            <div class="border rounded col-md-5 p-3">
+                <h3 class="text-center">Actions</h3>
+                <div class="border-top mb-1"></div>
+                <p class="lead">Help improve this content</p>
+                <p>Give a suggestion, ask a question, provide an answer, suggest edits,
+                    provide a model town board resource, or simply share this content!
+                </p>
+                <div class="m-3">
+                    <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-question-square"></i> Add a Question</a>
+                </div>
+                <div class="m-3">
+                    <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-cloud-arrow-up"></i> Add a Highway Sign</a>
+                </div>
+                <div class="m-3">
+                    <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-chat-right-text"></i> Suggest something</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

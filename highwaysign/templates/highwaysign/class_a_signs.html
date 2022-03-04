@@ -1,0 +1,308 @@
+{% extends "highwaysign/base_sidenav.html" %}
+{% load static %}
+{% block title1 %} <title>Signs | DrivingTestPrep</title> {% endblock title1 %}
+{% block content1 %}
+<h2 class="text-center">Class A Signs</h2>
+
+<!-- Short explanation -->
+<div class="border m-3 p-3">
+    <ul>
+        <li>Also known as <b>regulatory signs</b>, class A signs regulate/instruct the use of roads</li>
+        <li><b>Description:</b> They are circular in shape.</li>
+    </ul>
+    <p>They are divided into three major sub-categories;
+        <ul>
+            <li><b>Major/Priority signs</b> - they have priority over the others (Stop/Halt and Giveway/Yield signs)</li>
+            <li><b>Compulsory signs</b> - they are signs to be obeyed (usually circular in shape and blue in color)</li>
+            <li><b>Prohibitory signs</b> - they prohibit or deny something (usually circular and red in color)</p></li>
+        </ul>
+</div>
+
+<!-- Major signs -->
+<div class="border m-3 p-3">
+    <h4>1. Major / Priority Signs</h4>
+    <div class="row text-center p-3 ">
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+          <img src="{% static 'highwaysign/images/highway_signs/class-a/stop.png' %}" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="card-text text-center small-text">Stop or Halt</p>
+          </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/yield.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Yield or Giveway</p>
+            </div>
+          </div>
+    </div>
+    
+</div>
+
+<!-- Compulsory signs -->
+<div class="border m-3 p-3">
+    <h4>2. Compulsory signs</h4>
+    <div class="row text-center p-3">
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+          <img src="{% static 'highwaysign/images/highway_signs/class-a/turn_left.png' %}" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="card-text text-center small-text">Compulsory turn left</p>
+          </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/proceed_straight.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-text text-center small-text">Compulsory proceed straight</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/turn_right_or_proceed_straight.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-text text-center small-text">Compulsory turn right or proceed straight ahead</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/pass_left.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-text text-center small-text">Compulsory pass/keep left</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/compulsory_cyclist_track.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-text text-center small-text">Compulsory cyclist track</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/compulsory_domestic_animals.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-text text-center small-text">Compulsory domestic animals track</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/minimum_speed_limit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-text text-center small-text">Compulsory minimum speed limit shown</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/end_of_minSpeed_limit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-text text-center small-text">End of Compulsory minimum speed limit shown</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Prohibitory signs -->
+<div class="border m-3 p-3">
+    <h4>3.Prohibitory Signs</h4>
+    <div class="row text-center p-3 ">
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+          <img src="{% static 'highwaysign/images/highway_signs/class-a/no_entry.svg' %}" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="card-text text-center small-text">No entry!</p>
+          </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/road_closed.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Road closed</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_motor_vehicles.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No motor vehicles</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_motocyclist.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No motorcyclists</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_cylists.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No cyclists</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_pedestrian.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No pedestrians</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_animaldrawn_carts.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No animal-drawn carts</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_handdrawn_carts.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No hand-drawn carts</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/No_entry_farm_machinery.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No entry for farm machinery</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_heavy_cvehicles.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No entry for heavy commercial vehicles</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_engine_driven_vehicles.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No engine driven vehicles</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_engine_or_animal_vehicles.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No engine or animal driven vehicles</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/length_limit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Length limit</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/width_limit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Width limit</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/height_limit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Height limit</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/weight_limit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Mass limit</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/axle_weight_limit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Mass limit per axle</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/keep_dist_70.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Keep a distance of 70m</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_right_turn.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No right turn</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_left_turn.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No left turn</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_U_turn.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No U turn</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_overtaking.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No overtaking</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_overtaking_for_heavyCV.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No overtaking for heavy commercial vehicles</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/max_speedLimit.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Maximum speed limit</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_hooting.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No hooting</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/stop_customs_check.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Stop for customs check</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/stop_for_childrenC.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Stop for Children Crossing</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/giveway_to_oncoming_traffic.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Giveway to oncoming traffic</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/end_of_speedlimit_res.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">End of speed limit restriction</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/end_of_allR.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">End of all Restrictions</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_parking.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No parking</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/no_parking_stopping_waiting.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">No parking, stopping, or waiting</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/additional_road_panels.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Additional road panels</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 col-md-3 col-sm-3 col-5 p-2 m-2">
+            <img src="{% static 'highwaysign/images/highway_signs/class-a/controlled_parking_zone.png' %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text text-center small-text">Controlled parking zone</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock content1 %}

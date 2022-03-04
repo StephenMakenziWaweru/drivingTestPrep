@@ -1,0 +1,115 @@
+{% extends "highwaysign/base.html" %}
+{% load static %}
+{% block title %}
+    {% block title1 %} {% endblock title1 %}
+{% endblock title %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">HOME</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'mtb-notes' %}" class="nav-link align-middle px-0">
+                            <i class="fa fa-sticky-note" aria-hidden="true"></i><span class="ms-1 d-none d-sm-inline">RESOURCES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">QUESTIONS</span> </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="{% url 'general-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">general</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'definitions-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">definitions</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'signs-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">signs</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'mtb-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">mtb</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">SIGNS</span></a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="{% url 'signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">intro</a>
+                            </li>
+                            <li class="w-100">
+                                <a href="{% url 'class-a-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">class A</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'class-b-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">class B</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'class-c-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">class C</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fa fa-road" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">MTB</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="{% url 'mtb-intro' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">introduction</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'mtb-videos' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">videos</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'highwaysign/images/default.png' %}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">{{ user.username }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3">
+            {% block content1 %}{% endblock content1 %}
+            {% if is_paginated %}
+                <div class=" text-center">
+                    
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1" class="btn btn-outline-info mb-4">&#60;&#60;</a>
+                        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info mb-4">&#60;</a>
+                    {% else %}
+                        <a href="#" class="btn btn-outline-secondary disabled mb-4">&#60;&#60;</a>
+                        <a href="#" class="btn btn-outline-secondary mb-4">&#60;</a>
+                    {% endif %}
+                    <button class="btn btn-info mb-4">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</button>
+                    {% if page_obj.has_next %}
+                        <a href="?page={{page_obj.next_page_number}}" class="btn btn-outline-info mb-4">&#62;</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-info mb-4">&#62;&#62;</a>
+                    {% else %}
+                        <a href="#" class="btn btn-outline-secondary disabled mb-4">&#62;</a>
+                        <a href="#" class="btn btn-outline-secondary disabled mb-4">&#62;&#62;</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content%}

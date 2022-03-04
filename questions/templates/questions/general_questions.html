@@ -1,0 +1,45 @@
+{% extends "highwaysign/base_sidenav.html" %}
+{% load static %}
+{% block title1 %} <title>Questions | DrivingTestPrep</title> {% endblock title1 %}
+{% block content1 %}
+<h2 class="text-center">General Questions </h2>
+
+<div class="text-end m-3 ">
+    <button class="btn btn-secondary btn-sm" id="toggleAnswer"><i class="fa fa-eye-slash" aria-hidden="true"></i> hide all answers</button>
+</div>
+
+<!-- Short explanation -->
+<div class="border m-3 ms-0 p-3">
+    <ol>
+        {% for quiz in quiz_list %}
+        <div class="border rounded p-4 pt-1 pb-1 mb-2">
+            <p class=" owner-date m-0 p-0 text-end"><b>added by:</b> {{quiz.qs_owner}}   <b>date:</b> {{ quiz.qs_date_added|date:"M d, Y" }}</p>
+            <li>
+                <p><strong>{{ quiz.qs_title }}</strong></p>
+                <small>{{ quiz.qs_answer|linebreaks }}</small>
+                
+            </li>
+            <div>
+
+            </div>
+            
+            <div class="row justify-content-left">
+                <form method="POST" action="{% url 'like_quiz' quiz.pk %} " class="col-xl-1 col-lg-2 col-md-2 col-sm-3 col-3">
+                    {% csrf_token %}
+                    <button type="submit" name="quiz_id" value="{{ quiz.id }}" class="btn btn-primary btn-sm">
+                        {{ quiz.total_likes }} <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <form method="POST" action="{% url 'like_quiz' quiz.pk %}" class="col-xl-1 col-lg-2 col-md-2 col-sm-3 col-3">
+                    {% csrf_token %}
+                    <button type="submit" name="quiz_id" value="{{ quiz.id }}" class=" btn btn-danger btn-sm">
+                        {{ 0 }} <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock content1 %}

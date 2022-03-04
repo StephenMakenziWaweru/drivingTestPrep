@@ -1,0 +1,32 @@
+{% extends "highwaysign/base_sidenav.html" %}
+{% block title1 %} <title>MTB | DrivingTestPrep</title> {% endblock title1 %}
+{% block content1 %}
+<h1 class="text-center">Model Town Board Videos</h1>
+
+<div class="border m-3 p-3">
+    <p>This section provides a list of the most useful videos of the model town board
+        sourced from the internet especially Youtube.
+        <br>
+        Find pdfs and other non-video resources on the <a href="{% url 'mtb-notes' %}">Notes</a> page
+    </p>
+    <a href="">
+        <button class="btn btn-success">Add a Video</button>
+    </a>
+</div>
+
+<div class="border m-3 p-3 row">
+    {% for video in videos_list %}
+    <div class="border rounded  m-2  p-2 col-md-5 col-lg-3">
+        <h6>{{ video.title }}</h6>
+        <div class="ratio ratio-16x9">
+            <iframe 
+                src="{{ video.link }}"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p class="small-text">{{ video.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content1 %}
