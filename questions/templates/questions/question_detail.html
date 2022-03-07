@@ -1,0 +1,50 @@
+{% extends "highwaysign/base_sidenav.html" %}
+{% load static %}
+{% block title1 %} <title>Questions | DrivingTestPrep</title> {% endblock title1 %}
+{% block content1 %}
+<h2 class="text-center">[DETAILED] {{ object.qs_title }} </h2>
+<div class="border m-3 ms-0 p-3">
+    <table class="table table-sm table-bordered">
+        <tr>
+            <th><h5>Attribute</h5></th>
+            <th><h5>Details</h5></th>
+        </tr>
+        <tr>
+            <td><b>ID</b></td>
+            <td class="text-muted">{{ object.id }}</td>
+        <tr>
+        <tr>
+            <td><b>Created On</b></td>
+            <td class="text-muted">{{ object.qs_date_added }}</td>
+        <tr>
+            <td><b>Owner</b></td>
+            <td class="text-muted">{{ object.qs_owner }}</td>
+            
+        </tr>
+        <tr>
+            <td><b>Question</b></td>
+            <td>{{ object.qs_title }}</td>
+        </tr>
+        <tr>
+            <td><b>Type</b></td>
+            <td>{{ object.qs_type }}</td>
+        </tr>
+        <tr>
+            <td><b>Answer</b></td>
+            <td>{{ object.qs_answer|linebreaks }}</td>
+        </tr>
+    </table>
+    {% if object.qs_owner == user %}
+        <a href="{% url 'question-edit' object.id %}">
+            <button type="button" class="btn btn-primary">Edit</button></a>
+        <a href="{% url 'question-delete' object.id %}">
+            <button type="button" class="btn btn-danger">Delete</button></a>
+    {% else %}
+        <a href="#">
+            <button type="button" class="btn btn-primary disabled">Edit</button></a>
+        <a href="#">
+            <button type="button" class="btn btn-danger disabled">Delete</button></a>
+    {% endif %}
+</div>
+
+{% endblock content1 %}

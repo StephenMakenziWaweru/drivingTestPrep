@@ -7,7 +7,7 @@ class Notes(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     link = models.URLField()
-    owner = models.CharField(max_length=100, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True)
     date_added = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):

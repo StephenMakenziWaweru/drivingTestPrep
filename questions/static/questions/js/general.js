@@ -10,4 +10,5 @@ $(document).ready(() => {
         
     });
     $('#notes-table').DataTable();
+    $("#deleteQuestionModal").modal('show');
 });

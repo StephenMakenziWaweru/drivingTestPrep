@@ -27,16 +27,16 @@
                             <i class="fa fa-question-circle-o" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">QUESTIONS</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="{% url 'general-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">general</a>
+                                <a href="{% url 'general-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;general</a>
                             </li>
                             <li>
-                                <a href="{% url 'definitions-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">definitions</a>
+                                <a href="{% url 'definitions-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;definitions</a>
                             </li>
                             <li>
-                                <a href="{% url 'signs-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">signs</a>
+                                <a href="{% url 'signs-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;signs</a>
                             </li>
                             <li>
-                                <a href="{% url 'mtb-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">mtb</a>
+                                <a href="{% url 'mtb-q' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;mtb</a>
                             </li>
                         </ul>
                     </li>
@@ -45,28 +45,28 @@
                             <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">SIGNS</span></a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="{% url 'signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">intro</a>
+                                <a href="{% url 'signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;intro</a>
                             </li>
                             <li class="w-100">
-                                <a href="{% url 'class-a-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">class A</a>
+                                <a href="{% url 'class-a-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;class A</a>
                             </li>
                             <li>
-                                <a href="{% url 'class-b-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">class B</a>
+                                <a href="{% url 'class-b-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;class B</a>
                             </li>
                             <li>
-                                <a href="{% url 'class-c-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">class C</a>
+                                <a href="{% url 'class-c-signs' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;class C</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fa fa-road" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">MTB</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <ul class="collapse show nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="{% url 'mtb-intro' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">introduction</a>
+                                <a href="{% url 'mtb-intro' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;introduction</a>
                             </li>
                             <li>
-                                <a href="{% url 'mtb-videos' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">videos</a>
+                                <a href="{% url 'mtb-videos' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">&nbsp;&nbsp;videos</a>
                             </li>
                         </ul>
                     </li>
@@ -88,6 +88,13 @@
             </div>
         </div>
         <div class="col py-3">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
             {% block content1 %}{% endblock content1 %}
             {% if is_paginated %}
                 <div class=" text-center">

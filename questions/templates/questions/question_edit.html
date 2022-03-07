@@ -1,0 +1,17 @@
+{% extends "highwaysign/base_sidenav.html" %}
+{% load crispy_forms_tags widget_tweaks %}
+{% block title1 %} <title>Questions | DrivingTestPrep</title> {% endblock title1 %}
+{% block content1 %}
+<h2 class="text-center">[EDIT] {{ object.qs_title }} </h2>
+<div class="border m-3 ms-0 p-3">
+    <form method="POST"> {% csrf_token %}
+        {{ form.qs_title|as_crispy_field }}
+        {{ form.qs_type|as_crispy_field }}
+        {{ form.qs_answer|attr:"rows:3"|as_crispy_field }}
+        <a href="{% url 'question-detail' object.id %}">
+            <button type="button" class="btn btn-secondary" >Cancel</button>
+        </a>
+        <button type="submit" class="btn btn-danger">Save Changes</button>
+    </form>
+</div>
+{% endblock content1 %}

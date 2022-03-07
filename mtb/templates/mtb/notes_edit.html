@@ -1,0 +1,18 @@
+{% extends "highwaysign/base_sidenav.html" %}
+{% load crispy_forms_tags widget_tweaks %}
+{% block title1 %} <title>Notes | DrivingTestPrep</title> {% endblock title1 %}
+{% block content1 %}
+<h1 class="text-center">Delete Notes/Resources</h1>
+
+<!-- Update resource Modal -->
+<div class="border m-3 p-3">
+    <form method="POST"> {% csrf_token %}
+        {{ form.title|as_crispy_field }}
+        {{ form.description|attr:"rows:2"|as_crispy_field }}
+        {{ form.link|as_crispy_field }}
+    
+        <button type="button" class="btn btn-secondary" >Cancel</button>
+        <button type="submit" class="btn btn-danger">Save Changes</button> 
+    </form>
+</div>
+{% endblock content1 %}

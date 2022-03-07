@@ -58,9 +58,9 @@
                 </div>
                 <div class="col-4 ">
                     <ul class="list-unstyled">
-                        <li class="m-1"> <a  class="btn btn-sm btn-success" href="">Class A | Mandatory Signs</a> </li>
-                        <li class="m-1"> <a class="btn btn-sm btn-success" href="">Class B | Warning Signs</a> </li>
-                        <li class="m-1"> <a class="btn btn-sm btn-success" href="">Class C | Informatory Signs</a> </li>
+                        <li class="m-1"> <a  class="btn btn-sm btn-success" href="{% url 'class-a-signs' %}">Class A | Mandatory Signs</a> </li>
+                        <li class="m-1"> <a class="btn btn-sm btn-success" href="{% url 'class-b-signs' %}">Class B | Warning Signs</a> </li>
+                        <li class="m-1"> <a class="btn btn-sm btn-success" href="{% url 'class-c-signs' %}">Class C | Informatory Signs</a> </li>
                     </ul>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                 <div class="col-6">
                     <p class="lead">Want to drive on East African Roads like a pro?</p>
                     <p>Know the Model Town Board like the back of your hand</p>
-                    <button class="btn btn-success">Model Town Board</button>
+                    <a href="{% url 'mtb-intro' %}"><button class="btn btn-success">Model Town Board</button></a>
                 </div>
                 <div class="col-6">
                     <div class="col card m-2 p-2">

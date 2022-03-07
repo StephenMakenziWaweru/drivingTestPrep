@@ -1,10 +1,46 @@
 {% extends "highwaysign/base_sidenav.html" %}
+{% load crispy_forms_tags widget_tweaks %}
 {% load static %}
 {% block title1 %} <title>Questions | DrivingTestPrep</title> {% endblock title1 %}
 {% block content1 %}
 <h2 class="text-center">Signs Questions</h2>
-<div class="text-end m-3 ">
-    <button class="btn btn-secondary btn-sm" id="toggleAnswer"><i class="fa fa-eye-slash" aria-hidden="true"></i> hide all answers</button>
+<div class="row">
+    <div class="col">
+        <!-- Add question button -->
+        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addQuestionModal">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i> Add a Question
+        </button>
+
+        <!-- Add question Modal -->
+        <div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form method="POST">{% csrf_token %}
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addResourceModalLabel">Add a question</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ form.qs_title|as_crispy_field }}
+                        <div rows="3">
+                            {{ form.qs_answer|attr:"rows:2"|as_crispy_field }}
+                        </div>    
+                        {{ form.qs_type|as_crispy_field }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Question</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="text-end me-3">
+            <button class="btn btn-secondary btn-sm" id="toggleAnswer"><i class="fa fa-eye-slash" aria-hidden="true"></i> hide all answers</button>
+        </div>
+    </div>
 </div>
 
 <!-- Short explanation -->
@@ -14,26 +50,27 @@
         <div class="border rounded p-4 pt-1 pb-1 mb-2">
             <p class=" owner-date m-0 p-0 text-end"><b>added by:</b> {{quiz.qs_owner}}   <b>date:</b> {{ quiz.qs_date_added|date:"M d, Y" }}</p>
             <li>
-                <p><strong>{{ quiz.qs_title }}</strong></p>
+                <p><strong><a href="{% url 'question-detail' quiz.id %}">{{ quiz.qs_title }}</a></strong></p>
                 <small>{{ quiz.qs_answer|linebreaks }}</small>
                 
             </li>
             <div>
 
             </div>
-            <span class="text-primary">2 <a type="submit"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></span>
-            <span class="text-primary">0 <a type="submit"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></span>
-            
-            <form method="POST">
-                {% csrf_token %}
-                <input type="hidden">
-                
-            </form>
-            <form method="POST">
-                {% csrf_token %}
-                <input type="hidden">
-                
-            </form>
+            <div class="row justify-content-left">
+                <form method="POST" action="{% url 'like_quiz' quiz.pk %} " class="col-xl-1 col-lg-2 col-md-2 col-sm-3 col-3">
+                    {% csrf_token %}
+                    <button type="submit" name="quiz_id" value="{{ quiz.id }}" class="btn btn-primary btn-sm">
+                        {{ quiz.total_likes }} <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <form method="POST" action="{% url 'dislike_quiz' quiz.pk %}" class="col-xl-1 col-lg-2 col-md-2 col-sm-3 col-3">
+                    {% csrf_token %}
+                    <button type="submit" name="quiz_id" value="{{ quiz.id }}" class=" btn btn-danger btn-sm">
+                        {{ quiz.total_dislikes }} <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
             
         </div>
         {% endfor %}
