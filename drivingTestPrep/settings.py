@@ -44,12 +44,14 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     'widget_tweaks',
+    'rest_framework',
 
     # local apps
     'highwaysign',
     'users',
     'questions',
     'mtb',
+    'api',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

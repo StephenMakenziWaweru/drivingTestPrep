@@ -11,14 +11,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 def likeView(request, pk):
     """Track likes"""
     quiz = get_object_or_404(Question, id=request.POST.get('quiz_id'))
+    # print(quiz.qs_likes, '----', type(quiz.qs_likes))
     quiz.qs_likes.add(request.user)
     quiz.qs_dislikes.remove(request.user)
     return HttpResponseRedirect(reverse('general-q'))
 
 @login_required
 def dislikeView(request, pk):
-    """Track likes"""
+    """Track dislikes"""
     quiz = get_object_or_404(Question, id=request.POST.get('quiz_id'))
+    print(quiz.qs_likes, '----', type(quiz.qs_likes))
     quiz.qs_dislikes.add(request.user)
     quiz.qs_likes.remove(request.user)
     return HttpResponseRedirect(reverse('general-q'))

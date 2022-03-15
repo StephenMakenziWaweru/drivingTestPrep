@@ -46,7 +46,7 @@
                 <ul class="list-unstyled pt-3">
                     <li >Questions
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                            <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">10%</div>
                         </div>
                     </li>
                     <li class="pt-3">Signs
@@ -83,18 +83,18 @@
                 <div class="row">
                     <div class="bg-dark text-white w-25 text-center p-1 rounded m-3"> 
                         <h1><i class="bi bi-question-diamond-fill"></i></h1>
-                        <div>39</div>
+                        <div>{{ quiz_count }}</div>
                         <div><small>Questions</small></div>
                     </div>
                     <div class="bg-dark text-white w-25 text-center p-1 rounded m-3"> 
                         <h1><i class="bi bi-dash-circle-fill"></i></h1>
-                        <div>12</div>
-                        <div><small>Signs</small></div>
+                        <div>{{ video_count }}</div>
+                        <div><small>MTB</small></div>
                     </div>
                     <div class="bg-dark text-white w-25 text-center p-1 rounded m-3"> 
                         <h1><i class="bi bi-arrow-repeat"></i></h1>
-                        <div>03</div>
-                        <div><small>MTB</small></div>
+                        <div>{{ note_count }}</div>
+                        <div><small>Resources</small></div>
                     </div>
                 </div>
             </div>
@@ -108,13 +108,13 @@
                     provide a model town board resource, or simply share this content!
                 </p>
                 <div class="m-3">
-                    <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-question-square"></i> Add a Question</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'general-q' %}"><i class="bi bi-question-square"></i> Add a Question</a>
                 </div>
                 <div class="m-3">
-                    <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-cloud-arrow-up"></i> Add a Highway Sign</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'mtb-notes' %}"><i class="bi bi-cloud-arrow-up"></i> Add a resource</a>
                 </div>
                 <div class="m-3">
-                    <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-chat-right-text"></i> Suggest something</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'mtb-videos' %}"><i class="bi bi-chat-right-text"></i> Add an MTB video</a>
                 </div>
             </div>
         </div>
