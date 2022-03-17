@@ -1,39 +1,39 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView
 from .models import Notes, Video
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
-# Create your views here.
+
 def introduction(request):
     """renders the intro to mtb"""
     return render(request, 'mtb/introduction.html')
 
-def test(request):
-    """renders the intro to mtb"""
-    return render(request, 'mtb/test.html')
-
-class NotesListView(CreateView, ListView):
+class NotesListView(SuccessMessageMixin, CreateView, ListView):
     """Add and view Notes"""
     model = Notes
     template_name = 'mtb/notes.html'
     context_object_name = 'notes_list'
     fields = ['title', 'description', 'link']
     success_url = reverse_lazy('mtb-notes')
+    success_message = "Resource was added successfully"
+    order_by = '-id'
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-class NotesUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class NotesUpdateView(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView):
     """Edit Notes"""
     model = Notes
     template_name = 'mtb/notes_edit.html'
     fields = ['title', 'description', 'link']
     success_url = reverse_lazy('mtb-notes')
+    success_message = "Resource was updated successfully"
     
 
     def form_valid(self, form):
@@ -65,8 +65,16 @@ def notes_delete_view(request, id):
     return render(reverse_lazy('mtb-notes'))
     
 
-class VideosListView(ListView):
-    """General questions"""
+class VideosListView(LoginRequiredMixin, SuccessMessageMixin, CreateView, ListView):
+    """MTB videos"""
     model = Video
     template_name = 'mtb/videos.html'
     context_object_name = 'videos_list'
+    fields = ['title', 'description', 'link']
+    success_url = reverse_lazy('mtb-videos')
+    success_message = "Video was added successfully"
+    
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        
+        return super().form_valid(form)

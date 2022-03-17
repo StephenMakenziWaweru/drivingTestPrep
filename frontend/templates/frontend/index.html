@@ -1,0 +1,64 @@
+{% extends "frontend/base.html"%}
+{% block content %}
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="logo-details">
+                <!-- <i class='bx bxs-car icon'></i> -->
+                <div class="logo_name">DrivingTestPrep</div>
+                <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav-list">
+                <!-- <li>
+                    <i class='bx bx-search' ></i>
+                    <input type="text" placeholder="Search...">
+                    <span class="tooltip">Search</span>
+                </li> -->
+                <li>
+                    <a href="#" id="resourcesButton">
+                        <i class='bx bx-folder' ></i>
+                    <span class="links_name">Resources</span>
+                    </a>
+                    <span class="tooltip">Resources</span>
+                </li>
+                
+                <li>
+                    <a href="#" id="questionsButton">
+                        <i class='bx bx-question-mark'></i>
+                        <span class="links_name" >Questions</span>
+                    </a>
+                    <span class="tooltip">Questions</span>
+                </li>
+                <li>
+                    <a href="#" id="SignsButton">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span class="links_name" >Signs</span>
+                    </a>
+                    <span class="tooltip">Signs</span>
+                </li>
+                <li>
+                    <a href="#" id="mtbButton">
+                        <i class="fa fa-road"></i>
+                        <span class="links_name" >MTB</span>
+                    </a>
+                    <span class="tooltip">MTB</span>
+                </li>
+                <li>
+                    <a href="#" id="profileButton">
+                        <i class='bx bx-user' ></i>
+                        <span class="links_name" >Profile</span>
+                    </a>
+                    <span class="tooltip">Profile</span>
+                </li>
+                
+                
+            </ul>
+        </div>
+        <section class="home-section">
+            <div class="heading text-center" id="heading">
+            </div>
+            <div class="text" id="wrapper">
+                
+            </div>
+        </section>
+    </div>
+{% endblock content %}

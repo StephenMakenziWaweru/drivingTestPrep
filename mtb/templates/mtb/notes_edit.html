@@ -11,7 +11,7 @@
         {{ form.description|attr:"rows:2"|as_crispy_field }}
         {{ form.link|as_crispy_field }}
     
-        <button type="button" class="btn btn-secondary" >Cancel</button>
+        <a href="{% url 'mtb-notes' %}"><button type="button" class="btn btn-secondary" >Cancel</button></a>
         <button type="submit" class="btn btn-danger">Save Changes</button> 
     </form>
 </div>

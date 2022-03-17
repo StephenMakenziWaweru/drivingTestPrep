@@ -10,6 +10,9 @@ class Notes(models.Model):
     owner = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True)
     date_added = models.DateTimeField(default=datetime.now, blank=True)
 
+    class Meta:
+        ordering = ["-id"]
+
     def __str__(self):
         """Returns a string rep of the model"""
         return f'{self.title} notes'
@@ -22,6 +25,9 @@ class Video(models.Model):
     link = models.URLField()
     owner = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     date_added = models.DateTimeField(default=datetime.now, blank=True)
+
+    class Meta:
+        ordering = ["-id"]
 
     def __str__(self):
         """Returns a string rep of the model"""

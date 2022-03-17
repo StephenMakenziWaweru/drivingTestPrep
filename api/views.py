@@ -1,7 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from questions.models import Question
-from .serializer import QuestionSerializer
+from django.contrib.auth.models import User
+from .serializer import QuestionSerializer, UserSerializer
 
 @api_view(['GET'])
 def api_overview(request):
@@ -12,6 +13,9 @@ def api_overview(request):
         'Create-question': '/question-create/',
         'Update-question': '/question-update/<str:pk>/',
         'Delete-question': '/question-delete/<str:pk>/',
+
+        # User
+        'Show-user': '/user-detail/<str:pk>/',
 
         # Video
     }
@@ -61,4 +65,12 @@ def question_delete(request, pk):
         question.delete()
         return Response(response)
     serializer = QuestionSerializer(question)
+    return Response(serializer.data)
+
+# User
+@api_view(['GET'])
+def user_detail(request, pk):
+    """Detailed user"""
+    user = User.objects.get(id=pk)
+    serializer = UserSerializer(user, many=False)
     return Response(serializer.data)

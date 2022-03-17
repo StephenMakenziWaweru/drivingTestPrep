@@ -23,4 +23,5 @@ urlpatterns = [
     path('questions/', include('questions.urls')),
     path('mtb/', include('mtb.urls')),
     path('api/', include('api.urls')),
+    path('frontend/', include('frontend.urls')),
 ]

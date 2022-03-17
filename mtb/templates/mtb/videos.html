@@ -1,4 +1,5 @@
 {% extends "highwaysign/base_sidenav.html" %}
+{% load crispy_forms_tags widget_tweaks %}
 {% block title1 %} <title>MTB | DrivingTestPrep</title> {% endblock title1 %}
 {% block content1 %}
 <h1 class="text-center">Model Town Board Videos</h1>
@@ -9,9 +10,36 @@
         <br>
         Find pdfs and other non-video resources on the <a href="{% url 'mtb-notes' %}">Notes</a> page
     </p>
-    <a href="">
-        <button class="btn btn-success">Add a Video</button>
-    </a>
+    <!-- Add video button -->
+    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addVideoModal">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> Add a video
+    </button>
+    
+
+    <!-- Add video Modal -->
+    <div class="modal fade" id="addVideoModal" tabindex="-1" aria-labelledby="addVideoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form method="POST">{% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addQuestionModalLabel">Add a video</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ form.title|as_crispy_field }}
+                    <div rows="3">
+                        {{ form.description|attr:"rows:2"|as_crispy_field }}
+                    </div>    
+                    {{ form.link|as_crispy_field }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Video</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
 </div>
 
 <div class="border m-3 p-3 row">

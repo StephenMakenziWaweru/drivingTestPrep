@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'users',
     'questions',
     'mtb',
+    # new approach using apis
     'api',
+    'frontend'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
